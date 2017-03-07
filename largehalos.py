@@ -56,8 +56,8 @@ dark_mass_percent = ([])
 
 
 # first convert log solar masses into group catalog unit
-mass_min = 10**11.8 / 1e10 * 0.704
-mass_max = 10**12.9 / 1e10 * 0.704
+mass_min = 10**13.3/ 1e10 * 0.704
+mass_max = 10**16/ 1e10 * 0.704
 # form the search_query string by hand for once
 search_query = "?mass__gt=" + str(mass_min) + "&mass__lt=" + str(mass_max)
 print search_query
@@ -70,12 +70,12 @@ subhalos = get(url)
 print subhalos['count']
 #### OVERRIDE DEFAULT LENGTH OF 100
 subhalos1 = get((url),{'limit': subhalos['count'], 'order_by':'-mass_dm'}) 
+#subhalos1 = get((url),{'limit': , 'order_by':'-mass_dm'})
 
 
+c = [ subhalos1['results'][i]['id'] for i in range(subhalos['count']) ]
+#c = [ subhalos1['results'][i]['id'] for i in range(200) ]
 
-#c = [ subhalos1['results'][i]['id'] for i in range(subhalos['count']) ]
-
-c = [ subhalos1['results'][i]['id'] for i in range(100) ]
 
 
 def running_sum(a):
@@ -160,16 +160,16 @@ while n < len(c):
 		darkmattermass_density = ([])
 		radial_distance2 = ([])
 		coun = 0
-		iter = len(rrr2) / (15)
-		remainder = len(rrr2) % (15)
+		iter = len(rrr2) / (343)
+		remainder = len(rrr2) % (343)
 		dark_matters = ([])
 		outer_radius2 = ([])
 		while coun < iter:
-			top5 = rrr2[:15]
-			outer_radius2.insert(coun,top5[14])
+			top5 = rrr2[:343]
+			outer_radius2.insert(coun,top5[342])
 			totaldm_mass = len(top5) * 0.0035271
 			dark_matters.insert(coun,totaldm_mass)
-			del rrr2[:15]
+			del rrr2[:343]
 			coun = coun + 1	
 		outer_radius2.insert(0,0)
 		
@@ -384,3 +384,6 @@ data.close()
 
 
 
+	
+	
+ 
