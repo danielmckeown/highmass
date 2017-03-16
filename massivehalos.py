@@ -63,7 +63,7 @@ total_dm_mass = ([])
 
 
 # first convert log solar masses into group catalog unit
-mass_min = 10**13.0/ 1e10 * 0.704
+mass_min = 10**11.8/ 1e10 * 0.704
 mass_max = 10**16/ 1e10 * 0.704
 # form the search_query string by hand for once
 search_query = "?mass__gt=" + str(mass_min) + "&mass__lt=" + str(mass_max)
@@ -213,16 +213,16 @@ while n < len(c):
 		darkmattermass_density = ([])
 		radial_distance2 = ([])
 		coun = 0
-		iter = len(rrr2) / (343)
-		remainder = len(rrr2) % (343)
+		iter = len(rrr2) / (43)
+		remainder = len(rrr2) % (43)
 		dark_matters = ([])
 		outer_radius2 = ([])
 		while coun < iter:
-			top5 = rrr2[:343]
-			outer_radius2.insert(coun,top5[342])
+			top5 = rrr2[:43]
+			outer_radius2.insert(coun,top5[42])
 			totaldm_mass = len(top5) * 0.0035271
 			dark_matters.insert(coun,totaldm_mass)
-			del rrr2[:343]
+			del rrr2[:43]
 			coun = coun + 1	
 		outer_radius2.insert(0,0)
 		
