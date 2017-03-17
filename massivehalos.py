@@ -63,7 +63,7 @@ total_dm_mass = ([])
 
 
 # first convert log solar masses into group catalog unit
-mass_min = 10**11.8/ 1e10 * 0.704
+mass_min = 10**12.8/ 1e10 * 0.704
 mass_max = 10**16/ 1e10 * 0.704
 # form the search_query string by hand for once
 search_query = "?mass__gt=" + str(mass_min) + "&mass__lt=" + str(mass_max)
